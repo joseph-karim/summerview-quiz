@@ -101,13 +101,13 @@ export default function ContactCapturePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-teal-50">
+    <div className="min-h-screen bg-gradient-to-br from-summerview-white to-summerview-gray">
       {/* Header */}
-      <header className="bg-white/80 backdrop-blur-sm border-b border-blue-100 sticky top-0 z-40">
+      <header className="bg-summerview-white/80 backdrop-blur-sm border-b border-summerview-gray sticky top-0 z-40">
         <div className="container mx-auto px-4 py-4">
           <div className="text-center">
-            <h1 className="text-xl font-bold text-gray-900">Almost Done!</h1>
-            <p className="text-sm text-gray-600">Just need your contact info to show your results</p>
+            <h1 className="text-xl font-playfair font-bold text-summerview-black">Almost Done!</h1>
+            <p className="text-sm text-summerview-dark-gray font-lato">Just need your contact info to show your results</p>
           </div>
         </div>
       </header>
@@ -124,27 +124,27 @@ export default function ContactCapturePage() {
           className="max-w-2xl mx-auto"
         >
           <div className="text-center mb-8">
-            <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-4">
-              <CheckCircle className="w-8 h-8 text-white" />
+            <div className="w-16 h-16 bg-summerview-teal rounded-full flex items-center justify-center mx-auto mb-4">
+              <CheckCircle className="w-8 h-8 text-summerview-white" />
             </div>
-            <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            <h1 className="text-3xl lg:text-4xl font-playfair font-bold text-summerview-black mb-4">
               Great! We've analyzed your responses
             </h1>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-summerview-dark-gray font-lato">
               Enter your contact information below to receive your personalized PRP candidacy results
             </p>
           </div>
 
-          <Card className="p-8">
+          <Card className="p-8 border-summerview-gray">
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Contact Information */}
               <div className="space-y-4">
-                <h2 className="text-xl font-semibold text-gray-900 mb-4">Contact Information</h2>
+                <h2 className="text-xl font-poppins font-semibold text-summerview-black mb-4">Contact Information</h2>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="email" className="flex items-center space-x-2">
-                      <Mail className="w-4 h-4 text-blue-600" />
+                    <Label htmlFor="email" className="flex items-center space-x-2 font-lato">
+                      <Mail className="w-4 h-4 text-summerview-teal" />
                       <span>Email Address *</span>
                     </Label>
                     <Input
@@ -153,16 +153,16 @@ export default function ContactCapturePage() {
                       placeholder="your@email.com"
                       value={formData.email}
                       onChange={(e) => handleInputChange('email', e.target.value)}
-                      className={errors.email ? 'border-red-500' : ''}
+                      className={`font-lato ${errors.email ? 'border-summerview-red' : 'border-summerview-gray'}`}
                     />
                     {errors.email && (
-                      <p className="text-sm text-red-600">{errors.email}</p>
+                      <p className="text-sm text-summerview-red font-lato">{errors.email}</p>
                     )}
                   </div>
                   
                   <div className="space-y-2">
-                    <Label htmlFor="phone" className="flex items-center space-x-2">
-                      <Phone className="w-4 h-4 text-blue-600" />
+                    <Label htmlFor="phone" className="flex items-center space-x-2 font-lato">
+                      <Phone className="w-4 h-4 text-summerview-teal" />
                       <span>Phone Number *</span>
                     </Label>
                     <Input
@@ -171,22 +171,22 @@ export default function ContactCapturePage() {
                       placeholder="(555) 123-4567"
                       value={formData.phone}
                       onChange={(e) => handleInputChange('phone', e.target.value)}
-                      className={errors.phone ? 'border-red-500' : ''}
+                      className={`font-lato ${errors.phone ? 'border-summerview-red' : 'border-summerview-gray'}`}
                     />
                     {errors.phone && (
-                      <p className="text-sm text-red-600">{errors.phone}</p>
+                      <p className="text-sm text-summerview-red font-lato">{errors.phone}</p>
                     )}
                   </div>
                 </div>
               </div>
 
               {/* Privacy and Consent */}
-              <div className="bg-gray-50 rounded-xl p-6 space-y-4">
+              <div className="bg-summerview-gray/50 rounded-xl p-6 space-y-4">
                 <div className="flex items-start space-x-3">
-                  <Shield className="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
+                  <Shield className="w-6 h-6 text-summerview-teal mt-1 flex-shrink-0" />
                   <div className="flex-1">
-                    <h3 className="font-semibold text-gray-900 mb-2">Your Privacy is Protected</h3>
-                    <p className="text-sm text-gray-600 mb-4">
+                    <h3 className="font-poppins font-semibold text-summerview-black mb-2">Your Privacy is Protected</h3>
+                    <p className="text-sm text-summerview-dark-gray font-lato mb-4">
                       We only use your contact information to send you personalized results and follow-up 
                       information about hair restoration options. You can unsubscribe anytime.
                     </p>
@@ -200,7 +200,7 @@ export default function ContactCapturePage() {
                         />
                         <label 
                           htmlFor="email-consent" 
-                          className="text-sm text-gray-700 cursor-pointer leading-relaxed"
+                          className="text-sm text-summerview-dark-gray font-lato cursor-pointer leading-relaxed"
                         >
                           <strong>Yes, email me my results</strong> and educational content about hair restoration options
                         </label>
@@ -214,14 +214,14 @@ export default function ContactCapturePage() {
                         />
                         <label 
                           htmlFor="phone-consent" 
-                          className="text-sm text-gray-700 cursor-pointer leading-relaxed"
+                          className="text-sm text-summerview-dark-gray font-lato cursor-pointer leading-relaxed"
                         >
                           <strong>I'm open to a follow-up call</strong> to discuss my hair restoration options (optional)
                         </label>
                       </div>
                       
                       {errors.consent && (
-                        <p className="text-sm text-red-600">{errors.consent}</p>
+                        <p className="text-sm text-summerview-red font-lato">{errors.consent}</p>
                       )}
                     </div>
                   </div>
@@ -237,13 +237,13 @@ export default function ContactCapturePage() {
                 />
                 <label 
                   htmlFor="privacy-consent" 
-                  className="text-sm text-gray-700 cursor-pointer leading-relaxed"
+                  className="text-sm text-summerview-dark-gray font-lato cursor-pointer leading-relaxed"
                 >
                   I agree to the privacy policy and consent to the collection and use of my information as described. *
                 </label>
               </div>
               {errors.privacy && (
-                <p className="text-sm text-red-600">{errors.privacy}</p>
+                <p className="text-sm text-summerview-red font-lato">{errors.privacy}</p>
               )}
 
               {/* Submit Button */}
@@ -251,14 +251,14 @@ export default function ContactCapturePage() {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-700 hover:to-teal-700 py-4 text-lg font-semibold"
+                  className="w-full bg-summerview-brown hover:bg-summerview-brown/90 text-summerview-white py-4 text-lg font-semibold font-poppins"
                 >
                   {isSubmitting ? 'Processing...' : 'Show My Results'}
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
                 
                 {errors.submit && (
-                  <p className="text-sm text-red-600 mt-2 text-center">{errors.submit}</p>
+                  <p className="text-sm text-summerview-red mt-2 text-center font-lato">{errors.submit}</p>
                 )}
               </div>
             </form>
@@ -266,13 +266,13 @@ export default function ContactCapturePage() {
 
           {/* Trust Indicators */}
           <div className="mt-8 text-center">
-            <div className="flex items-center justify-center space-x-6 text-sm text-gray-500">
+            <div className="flex items-center justify-center space-x-6 text-sm text-summerview-dark-gray font-lato">
               <div className="flex items-center space-x-2">
-                <Shield className="w-4 h-4 text-green-500" />
+                <Shield className="w-4 h-4 text-summerview-teal" />
                 <span>HIPAA Compliant</span>
               </div>
               <div className="flex items-center space-x-2">
-                <CheckCircle className="w-4 h-4 text-green-500" />
+                <CheckCircle className="w-4 h-4 text-summerview-teal" />
                 <span>Secure & Confidential</span>
               </div>
             </div>

@@ -11,11 +11,11 @@ export function QuizProgress({ currentStep, totalSteps }: QuizProgressProps) {
   const progress = (currentStep / totalSteps) * 100
 
   return (
-    <div className="bg-white/80 backdrop-blur-sm border-b border-blue-100">
+    <div className="bg-summerview-white/80 backdrop-blur-sm border-b border-summerview-gray">
       <div className="container mx-auto px-4 py-4">
         <div className="relative">
           {/* Background */}
-          <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
+          <div className="w-full h-3 bg-summerview-gray rounded-full overflow-hidden">
             {/* Hair strand pattern background */}
             <div className="absolute inset-0 opacity-20">
               <svg
@@ -36,7 +36,7 @@ export function QuizProgress({ currentStep, totalSteps }: QuizProgressProps) {
                   >
                     <path
                       d="M2,6 Q6,2 10,6 Q14,10 18,6"
-                      stroke="#3B82F6"
+                      stroke="rgb(134, 185, 184)"
                       strokeWidth="1"
                       fill="none"
                       opacity="0.3"
@@ -49,7 +49,7 @@ export function QuizProgress({ currentStep, totalSteps }: QuizProgressProps) {
             
             {/* Progress fill */}
             <motion.div
-              className="h-full bg-gradient-to-r from-blue-500 to-teal-500 relative overflow-hidden"
+              className="h-full bg-gradient-to-r from-summerview-brown to-summerview-teal relative overflow-hidden"
               initial={{ width: 0 }}
               animate={{ width: `${progress}%` }}
               transition={{ duration: 0.5, ease: "easeOut" }}
@@ -99,10 +99,10 @@ export function QuizProgress({ currentStep, totalSteps }: QuizProgressProps) {
           
           {/* Progress text */}
           <div className="flex justify-between items-center mt-2">
-            <span className="text-sm font-medium text-gray-600">
+            <span className="text-sm font-medium font-poppins text-summerview-dark-gray">
               {Math.round(progress)}% Complete
             </span>
-            <span className="text-sm text-gray-500">
+            <span className="text-sm text-summerview-dark-gray font-lato">
               {currentStep} of {totalSteps}
             </span>
           </div>

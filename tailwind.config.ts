@@ -59,7 +59,26 @@ const config: Config = {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Summerview Medical Brand Colors
+				summerview: {
+					white: 'rgb(255, 255, 255)',
+					black: 'rgb(0, 0, 0)',
+					gray: 'rgb(232, 230, 230)',
+					brown: 'rgb(117, 77, 77)',
+					tan: 'rgb(208, 177, 157)',
+					teal: 'rgb(134, 185, 184)',
+					'dark-gray': 'rgb(94, 94, 94)',
+					red: 'rgb(237, 28, 36)'
 				}
+			},
+			fontFamily: {
+				'lato': ['Lato', 'sans-serif'],
+				'poppins': ['Poppins', 'sans-serif'],
+				'playfair': ['Playfair Display', 'serif'],
+				'din': ['DIN Next LT Pro', 'sans-serif'],
+				'didot': ['Didot', 'serif'],
+				'assistant': ['Assistant', 'sans-serif']
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

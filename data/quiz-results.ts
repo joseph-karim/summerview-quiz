@@ -4,10 +4,10 @@ export const resultData = {
   ideal: {
     title: "You're in the PRP Window! 🎉",
     subtitle: "Based on your responses, you appear to be an excellent candidate for PRP hair restoration. Your timing and hair condition suggest optimal potential for success.",
-    backgroundColor: "bg-gradient-to-br from-green-50 to-emerald-50",
+    backgroundColor: "bg-gradient-to-br from-summerview-tan/20 to-summerview-teal/20",
     icon: CheckCircle,
-    iconBg: "bg-green-100",
-    iconColor: "text-green-600",
+    iconBg: "bg-summerview-teal",
+    iconColor: "text-summerview-white",
     cta: {
       title: "Ready to Start Your Hair Restoration Journey?",
       description: "Schedule your free consultation to discuss your personalized PRP treatment plan with our board-certified specialists.",
@@ -32,10 +32,10 @@ export const resultData = {
   partial: {
     title: "You Might Be a Good Candidate",
     subtitle: "Your responses suggest PRP could be beneficial, but we'd like to evaluate your specific situation more closely to ensure the best treatment approach.",
-    backgroundColor: "bg-gradient-to-br from-yellow-50 to-orange-50",
+    backgroundColor: "bg-gradient-to-br from-summerview-tan/30 to-summerview-gray/30",
     icon: AlertTriangle,
-    iconBg: "bg-yellow-100",
-    iconColor: "text-yellow-600",
+    iconBg: "bg-summerview-tan",
+    iconColor: "text-summerview-brown",
     cta: {
       title: "Let's Determine Your Best Path Forward",
       description: "Schedule a consultation for a thorough scalp analysis and personalized treatment recommendations.",
@@ -60,10 +60,10 @@ export const resultData = {
   unfit: {
     title: "Let's Explore Your Best Options",
     subtitle: "While PRP may not be the ideal solution for your current situation, there are several effective alternatives that could be perfect for your hair restoration goals.",
-    backgroundColor: "bg-gradient-to-br from-blue-50 to-indigo-50",
+    backgroundColor: "bg-gradient-to-br from-summerview-gray/40 to-summerview-teal/20",
     icon: Info,
-    iconBg: "bg-blue-100",
-    iconColor: "text-blue-600",
+    iconBg: "bg-summerview-brown",
+    iconColor: "text-summerview-white",
     cta: {
       title: "Don't Give Up - You Have Great Options",
       description: "Schedule a comprehensive consultation to explore alternative treatments that may be more suitable for your specific needs.",

@@ -60,9 +60,9 @@ export function InteractiveTimeline() {
       {/* Timeline Navigator */}
       <div className="relative">
         {/* Progress line */}
-        <div className="absolute top-6 left-0 right-0 h-1 bg-gray-200 rounded-full">
+        <div className="absolute top-6 left-0 right-0 h-1 bg-summerview-gray rounded-full">
           <motion.div
-            className="h-full bg-gradient-to-r from-blue-500 to-teal-500 rounded-full"
+            className="h-full bg-gradient-to-r from-summerview-brown to-summerview-teal rounded-full"
             initial={{ width: "0%" }}
             animate={{ width: `${(selectedMonth / 6) * 100}%` }}
             transition={{ duration: 0.5 }}
@@ -80,8 +80,8 @@ export function InteractiveTimeline() {
               <motion.div
                 className={`w-12 h-12 rounded-full border-4 flex items-center justify-center transition-all duration-200 ${
                   item.month <= selectedMonth
-                    ? 'bg-gradient-to-r from-blue-500 to-teal-500 border-blue-500 text-white'
-                    : 'bg-white border-gray-300 text-gray-400'
+                    ? 'bg-summerview-teal border-summerview-teal text-summerview-white'
+                    : 'bg-summerview-white border-summerview-gray text-summerview-dark-gray'
                 } ${selectedMonth === item.month ? 'scale-110 shadow-lg' : ''} group-hover:scale-105`}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
@@ -93,12 +93,12 @@ export function InteractiveTimeline() {
                 )}
               </motion.div>
               <div className="mt-3 text-center">
-                <div className={`text-sm font-medium ${
-                  selectedMonth === item.month ? 'text-blue-600' : 'text-gray-600'
+                <div className={`text-sm font-medium font-poppins ${
+                  selectedMonth === item.month ? 'text-summerview-teal' : 'text-summerview-dark-gray'
                 }`}>
                   Month {item.month}
                 </div>
-                <div className="text-xs text-gray-500 max-w-20 leading-tight">
+                <div className="text-xs text-summerview-dark-gray max-w-20 leading-tight font-lato">
                   {item.title}
                 </div>
               </div>
@@ -114,32 +114,32 @@ export function InteractiveTimeline() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
       >
-        <Card className="p-6 bg-gradient-to-r from-blue-50 to-teal-50 border-blue-200">
+        <Card className="p-6 bg-summerview-tan/10 border-summerview-tan">
           <div className="flex items-start space-x-4">
             <div className={`w-16 h-16 rounded-full flex items-center justify-center ${
               selectedData?.month <= 3 
-                ? 'bg-gradient-to-r from-blue-500 to-teal-500 text-white'
-                : 'bg-white border-2 border-blue-300 text-blue-600'
+                ? 'bg-summerview-teal text-summerview-white'
+                : 'bg-summerview-white border-2 border-summerview-tan text-summerview-brown'
             }`}>
-              <span className="text-xl font-bold">
+              <span className="text-xl font-bold font-poppins">
                 {selectedData?.month === 0 ? '0' : selectedData?.month}
               </span>
             </div>
             <div className="flex-1">
               <div className="flex items-center space-x-2 mb-2">
-                <h3 className="text-xl font-bold text-gray-900">
+                <h3 className="text-xl font-bold text-summerview-black font-poppins">
                   {selectedData?.title}
                 </h3>
                 {selectedData?.status === 'active' && (
-                  <span className="bg-green-100 text-green-800 text-xs font-medium px-2 py-1 rounded-full">
+                  <span className="bg-summerview-teal text-summerview-white text-xs font-medium px-2 py-1 rounded-full font-lato">
                     Current Phase
                   </span>
                 )}
               </div>
-              <p className="text-blue-800 font-medium mb-3">
+              <p className="text-summerview-brown font-medium mb-3 font-poppins">
                 {selectedData?.description}
               </p>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-summerview-dark-gray leading-relaxed font-lato">
                 {selectedData?.details}
               </p>
             </div>
@@ -148,20 +148,20 @@ export function InteractiveTimeline() {
       </motion.div>
 
       {/* Expected results summary */}
-      <div className="bg-white rounded-lg p-6 border border-gray-200">
-        <h3 className="font-semibold text-gray-900 mb-4">Expected Results Summary</h3>
+      <div className="bg-summerview-white rounded-lg p-6 border border-summerview-gray">
+        <h3 className="font-poppins font-semibold text-summerview-black mb-4">Expected Results Summary</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
           <div className="text-center">
-            <div className="text-2xl font-bold text-green-600 mb-1">85%</div>
-            <p className="text-gray-600">Patient satisfaction rate</p>
+            <div className="text-2xl font-bold text-summerview-teal mb-1 font-poppins">85%</div>
+            <p className="text-summerview-dark-gray font-lato">Patient satisfaction rate</p>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-blue-600 mb-1">30%</div>
-            <p className="text-gray-600">Average hair density increase</p>
+            <div className="text-2xl font-bold text-summerview-brown mb-1 font-poppins">30%</div>
+            <p className="text-summerview-dark-gray font-lato">Average hair density increase</p>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-purple-600 mb-1">6</div>
-            <p className="text-gray-600">Months to full results</p>
+            <div className="text-2xl font-bold text-summerview-tan mb-1 font-poppins">6</div>
+            <p className="text-summerview-dark-gray font-lato">Months to full results</p>
           </div>
         </div>
       </div>

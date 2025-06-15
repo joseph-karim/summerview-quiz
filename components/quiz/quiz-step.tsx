@@ -33,8 +33,8 @@ export function QuizStep({ question, onAnswer, currentAnswer }: QuizStepProps) {
                 whileTap={{ scale: 0.98 }}
               >
                 <Card
-                  className={`p-6 cursor-pointer transition-all duration-200 border-2 hover:border-blue-300 ${
-                    currentAnswer === option.value ? 'border-blue-500 bg-blue-50' : 'border-gray-200'
+                  className={`p-6 cursor-pointer transition-all duration-200 border-2 hover:border-summerview-teal ${
+                    currentAnswer === option.value ? 'border-summerview-brown bg-summerview-tan/10' : 'border-summerview-gray'
                   }`}
                   onClick={() => onAnswer(option.value)}
                 >
@@ -48,9 +48,9 @@ export function QuizStep({ question, onAnswer, currentAnswer }: QuizStepProps) {
                       />
                     </div>
                   )}
-                  <h3 className="font-semibold text-gray-900 mb-2">{option.label}</h3>
+                  <h3 className="font-poppins font-semibold text-summerview-black mb-2">{option.label}</h3>
                   {option.description && (
-                    <p className="text-sm text-gray-600">{option.description}</p>
+                    <p className="text-sm text-summerview-dark-gray font-lato">{option.description}</p>
                   )}
                 </Card>
               </motion.div>
@@ -61,13 +61,13 @@ export function QuizStep({ question, onAnswer, currentAnswer }: QuizStepProps) {
       case 'slider':
         return (
           <div className="max-w-md mx-auto">
-            <Card className="p-8">
+            <Card className="p-8 border-summerview-gray">
               <div className="space-y-6">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-600 mb-2">
+                  <div className="text-3xl font-bold text-summerview-teal mb-2 font-poppins">
                     {sliderValue[0]}
                   </div>
-                  <p className="text-sm text-gray-600">{question.sliderLabel}</p>
+                  <p className="text-sm text-summerview-dark-gray font-lato">{question.sliderLabel}</p>
                 </div>
                 
                 <Slider
@@ -76,17 +76,17 @@ export function QuizStep({ question, onAnswer, currentAnswer }: QuizStepProps) {
                   min={question.sliderMin || 0}
                   max={question.sliderMax || 100}
                   step={1}
-                  className="w-full"
+                  className="w-full [&_[role=slider]]:bg-summerview-brown [&_[role=slider]]:border-summerview-brown"
                 />
                 
-                <div className="flex justify-between text-xs text-gray-500">
+                <div className="flex justify-between text-xs text-summerview-dark-gray font-lato">
                   <span>{question.sliderMin || 0}</span>
                   <span>{question.sliderMax || 100}</span>
                 </div>
                 
                 <Button
                   onClick={handleSliderAnswer}
-                  className="w-full bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-700 hover:to-teal-700"
+                  className="w-full bg-summerview-brown hover:bg-summerview-brown/90 text-summerview-white font-poppins"
                 >
                   Continue
                 </Button>
@@ -105,8 +105,8 @@ export function QuizStep({ question, onAnswer, currentAnswer }: QuizStepProps) {
                 whileTap={{ scale: 0.95 }}
               >
                 <Card
-                  className={`p-4 cursor-pointer transition-all duration-200 border-2 hover:border-blue-300 text-center ${
-                    currentAnswer === option.value ? 'border-blue-500 bg-blue-50' : 'border-gray-200'
+                  className={`p-4 cursor-pointer transition-all duration-200 border-2 hover:border-summerview-teal text-center ${
+                    currentAnswer === option.value ? 'border-summerview-brown bg-summerview-tan/10' : 'border-summerview-gray'
                   }`}
                   onClick={() => onAnswer(option.value)}
                 >
@@ -120,7 +120,7 @@ export function QuizStep({ question, onAnswer, currentAnswer }: QuizStepProps) {
                       />
                     </div>
                   )}
-                  <h3 className="font-medium text-gray-900 text-sm">{option.label}</h3>
+                  <h3 className="font-medium text-summerview-black text-sm font-poppins">{option.label}</h3>
                 </Card>
               </motion.div>
             ))}
@@ -130,7 +130,7 @@ export function QuizStep({ question, onAnswer, currentAnswer }: QuizStepProps) {
       default:
         return (
           <div className="text-center">
-            <p className="text-gray-600">Question type not implemented</p>
+            <p className="text-summerview-dark-gray font-lato">Question type not implemented</p>
           </div>
         )
     }
@@ -144,11 +144,11 @@ export function QuizStep({ question, onAnswer, currentAnswer }: QuizStepProps) {
         transition={{ duration: 0.5 }}
         className="text-center mb-8"
       >
-        <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+        <h1 className="text-3xl lg:text-4xl font-playfair font-bold text-summerview-black mb-4">
           {question.title}
         </h1>
         {question.subtitle && (
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-summerview-dark-gray max-w-2xl mx-auto font-lato">
             {question.subtitle}
           </p>
         )}

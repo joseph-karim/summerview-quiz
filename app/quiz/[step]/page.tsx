@@ -58,22 +58,22 @@ export default function QuizStepPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-teal-50">
+    <div className="min-h-screen bg-gradient-to-br from-summerview-white to-summerview-gray">
       {/* Header */}
-      <header className="bg-white/80 backdrop-blur-sm border-b border-blue-100 sticky top-0 z-40">
+      <header className="bg-summerview-white/80 backdrop-blur-sm border-b border-summerview-gray sticky top-0 z-40">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Button
               variant="ghost"
               size="sm"
               onClick={handleBack}
-              className="flex items-center space-x-2"
+              className="flex items-center space-x-2 text-summerview-brown hover:text-summerview-brown hover:bg-summerview-tan/20"
             >
               <ArrowLeft className="w-4 h-4" />
-              <span>Back</span>
+              <span className="font-lato">Back</span>
             </Button>
             
-            <div className="text-sm text-gray-600">
+            <div className="text-sm text-summerview-dark-gray font-lato">
               Step {step} of {totalSteps}
             </div>
             
@@ -82,7 +82,7 @@ export default function QuizStepPage() {
                 variant="ghost"
                 size="sm"
                 onClick={handleSkip}
-                className="text-gray-500"
+                className="text-summerview-dark-gray hover:text-summerview-brown hover:bg-summerview-tan/20 font-lato"
               >
                 Skip
               </Button>
