@@ -12,29 +12,29 @@ export const quizQuestions: QuizQuestion[] = [
         label: "Crown/Vertex Thinning",
         value: "crown",
         description: "Thinning at the crown is often genetic (AGA). PRP can stimulate these follicles if treated early.",
-        image: "/images/crown-thinning.jpg",
-        avatar: "/images/crown-icon.svg"
+        image: "/crown_thinning.png",
+        avatar: "/crown_thinning.png"
       },
       {
         label: "Receding Hairline/Temples",
         value: "hairline",
         description: "Hairline recession is usually hormonal (DHT-driven). PRP may help strengthen and thicken follicles along the hairline before they miniaturize completely.",
-        image: "/images/hairline-recession.jpg",
-        avatar: "/images/hairline-icon.svg"
+        image: "/receding_hairline.png",
+        avatar: "/receding_hairline.png"
       },
       {
         label: "Diffuse Overall Thinning",
         value: "diffuse",
         description: "Diffuse shedding (hair falling out all over) can be temporary (e.g. postpartum or stress). PRP might aid recovery by nourishing tired follicles.",
-        image: "/images/diffuse-thinning.jpg",
-        avatar: "/images/diffuse-icon.svg"
+        image: "/thinning_diffuse.png",
+        avatar: "/thinning_diffuse.png"
       },
       {
         label: "Bald Patches",
         value: "patches",
         description: "Isolated bald spots may be due to scarring or autoimmune causes – PRP is generally less effective here.",
-        image: "/images/bald-patches.jpg",
-        avatar: "/images/patches-icon.svg"
+        image: "/patchy.png",
+        avatar: "/patchy.png"
       }
     ]
   },
