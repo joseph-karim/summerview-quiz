@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { QuizStep } from '@/components/quiz/quiz-step'
 import { QuizProgress } from '@/components/quiz/quiz-progress'

@@ -4,6 +4,8 @@ import { Button } from '@/components/ui/button'
 import { Slider } from '@/components/ui/slider'
 import { QuizQuestion } from '@/types/quiz'
 import { useState } from 'react'
+import { Info } from 'lucide-react'
+import { getCaseStudyByPersona } from '@/data/case-studies'
 
 interface QuizStepProps {
   question: QuizQuestion
@@ -183,6 +185,36 @@ export function QuizStep({ question, onAnswer, currentAnswer }: QuizStepProps) {
       >
         {renderQuestionContent()}
       </motion.div>
+
+      {/* Educational Nugget */}
+      {question.eduNugget && currentAnswer && (
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+          className="mt-6 max-w-2xl mx-auto"
+        >
+          <Card className="bg-summerview-teal/10 border-summerview-teal p-4">
+            <div className="flex items-start space-x-3">
+              <Info className="w-5 h-5 text-summerview-teal flex-shrink-0 mt-0.5" />
+              <div className="text-sm text-summerview-dark-gray font-lato">
+                {question.eduNugget === 'personaDynamic' && question.id === 6 ? (
+                  // Special dynamic nugget for persona question
+                  (() => {
+                    const caseStudy = getCaseStudyByPersona(currentAnswer)
+                    if (caseStudy) {
+                      return `Patients like ${caseStudy.name} gained ${caseStudy.statistic.value} ${caseStudy.statistic.label} with PRP treatment.`
+                    }
+                    return "PRP works best when tailored to your specific situation and hair loss pattern."
+                  })()
+                ) : (
+                  question.eduNugget
+                )}
+              </div>
+            </div>
+          </Card>
+        </motion.div>
+      )}
     </div>
   )
 }

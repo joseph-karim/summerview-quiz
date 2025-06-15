@@ -3,183 +3,227 @@ import { QuizQuestion } from '@/types/quiz'
 export const quizQuestions: QuizQuestion[] = [
   {
     id: 1,
-    title: "What type of hair changes are you experiencing?",
-    subtitle: "Select all that apply to your situation",
-    type: "multiple-choice",
+    title: "Where are you noticing hair loss?",
+    subtitle: "Use visual options to help identify your primary area of hair thinning",
+    type: "avatar-select",
+    eduNugget: "Follicles visible? Great – PRP can feed them back to health. Bald-shiny areas usually need transplant.",
     options: [
       {
-        label: "Thinning all over (diffuse)",
-        value: "diffuse",
-        description: "Hair feels thinner throughout, less density overall",
-        image: "/images/hair-diffuse.jpg"
-      },
-      {
-        label: "Receding hairline",
-        value: "receding",
-        description: "Hairline moving back, temples thinning",
-        image: "/images/hair-receding.jpg"
-      },
-      {
-        label: "Crown thinning",
+        label: "Crown/Vertex Thinning",
         value: "crown",
-        description: "Thinning at the top/back of head",
-        image: "/images/hair-crown.jpg"
+        description: "Thinning at the crown is often genetic (AGA). PRP can stimulate these follicles if treated early.",
+        image: "/images/crown-thinning.jpg",
+        avatar: "/images/crown-icon.svg"
       },
       {
-        label: "Patchy hair loss",
-        value: "patchy",
-        description: "Circular bald spots or uneven loss",
-        image: "/images/hair-patchy.jpg"
+        label: "Receding Hairline/Temples",
+        value: "hairline",
+        description: "Hairline recession is usually hormonal (DHT-driven). PRP may help strengthen and thicken follicles along the hairline before they miniaturize completely.",
+        image: "/images/hairline-recession.jpg",
+        avatar: "/images/hairline-icon.svg"
+      },
+      {
+        label: "Diffuse Overall Thinning",
+        value: "diffuse",
+        description: "Diffuse shedding (hair falling out all over) can be temporary (e.g. postpartum or stress). PRP might aid recovery by nourishing tired follicles.",
+        image: "/images/diffuse-thinning.jpg",
+        avatar: "/images/diffuse-icon.svg"
+      },
+      {
+        label: "Bald Patches",
+        value: "patches",
+        description: "Isolated bald spots may be due to scarring or autoimmune causes – PRP is generally less effective here.",
+        image: "/images/bald-patches.jpg",
+        avatar: "/images/patches-icon.svg"
       }
     ]
   },
   {
     id: 2,
-    title: "What's your age group?",
-    subtitle: "This helps us understand your hair restoration timeline",
-    type: "avatar-select",
+    title: "When did you first notice the thinning?",
+    subtitle: "The sooner you address hair loss, the better your outcome",
+    type: "multiple-choice",
+    eduNugget: "Studies show < 12-month loss responds best (average +20 hairs/cm²). Don't miss that window.",
     options: [
       {
-        label: "20-29",
-        value: "20s",
-        avatar: "/images/avatar-20s.jpg"
+        label: "Within the last 6 months",
+        value: "under_6_months",
+        description: "You're in the ideal window for intervention – PRP is most effective in early-stage thinning."
       },
       {
-        label: "30-39",
-        value: "30s",
-        avatar: "/images/avatar-30s.jpg"
+        label: "6–12 months ago",
+        value: "6_to_12_months",
+        description: "Recent onset within a year suggests active follicles that can respond well to PRP."
       },
       {
-        label: "40-49",
-        value: "40s",
-        avatar: "/images/avatar-40s.jpg"
+        label: "1–2 years ago",
+        value: "1_to_2_years",
+        description: "Still within a reasonable timeframe – many follicles may be salvageable."
       },
       {
-        label: "50+",
-        value: "50plus",
-        avatar: "/images/avatar-50plus.jpg"
+        label: "Over 2 years ago",
+        value: "over_2_years",
+        description: "Long-standing hair loss may indicate some follicles have become dormant or lost – results may be less pronounced."
       }
     ]
   },
   {
     id: 3,
-    title: "When did you first notice hair changes?",
-    subtitle: "Timing is crucial for PRP effectiveness",
+    title: "Has it been getting worse recently?",
+    subtitle: "Understanding progression helps determine the urgency of treatment",
     type: "multiple-choice",
+    eduNugget: "An active shed = follicles still alive. Stopping the cascade early prevents permanent miniaturisation.",
     options: [
       {
-        label: "Within the last 6 months",
-        value: "recent",
-        description: "Early intervention often yields best results"
+        label: "Yes, it's accelerating",
+        value: "accelerating",
+        description: "Active worsening means you're in a phase where intervention can have a big impact. PRP can help slow down or halt the progression."
       },
       {
-        label: "6 months to 2 years ago",
-        value: "moderate",
-        description: "Still in a good window for treatment"
+        label: "Somewhat worse",
+        value: "somewhat_worse",
+        description: "Gradual progression indicates ongoing follicle stress that PRP may help address."
       },
       {
-        label: "2-5 years ago",
-        value: "established",
-        description: "May require combined approaches"
-      },
-      {
-        label: "More than 5 years ago",
-        value: "longterm",
-        description: "Advanced planning may be needed"
+        label: "No, it's stable or slowing",
+        value: "stable",
+        description: "Stable loss means PRP may focus on regrowth of what was lost rather than stopping current shedding."
       }
     ]
   },
   {
     id: 4,
-    title: "Any of these medical conditions?",
-    subtitle: "Some conditions may affect PRP candidacy",
+    title: "What have you tried already?",
+    subtitle: "This helps us understand your treatment journey",
     type: "multiple-choice",
-    optional: true,
+    eduNugget: "PRP can pair synergistically with minoxidil/finasteride and sometimes rescues 'vitamin-only' non-responders.",
     options: [
       {
-        label: "None of these apply",
-        value: "none",
-        description: "Great! No medical barriers"
+        label: "Nothing yet",
+        value: "nothing",
+        description: "No worries – PRP can be a first-line treatment, especially if you prefer a more natural approach before medications."
       },
       {
-        label: "Autoimmune conditions",
-        value: "autoimmune",
-        description: "May require additional evaluation"
+        label: "Minoxidil/Rogaine",
+        value: "minoxidil",
+        description: "Many try topical solutions first. PRP works at a deeper level using your body's growth factors."
       },
       {
-        label: "Blood disorders",
-        value: "blood",
-        description: "Could affect platelet function"
+        label: "Biotin or hair vitamins",
+        value: "vitamins",
+        description: "Supplements can help, but often aren't enough for genetic hair loss. PRP targets the issue more directly."
       },
       {
-        label: "Recent pregnancy/breastfeeding",
-        value: "pregnancy",
-        description: "Timing considerations may apply"
+        label: "Prescription medications",
+        value: "prescription",
+        description: "If medications haven't given desired results, PRP offers a drug-free alternative approach."
+      },
+      {
+        label: "Special shampoos",
+        value: "shampoos",
+        description: "Topical products have limitations. PRP delivers growth factors directly to follicles."
+      },
+      {
+        label: "Multiple treatments",
+        value: "multiple",
+        description: "You've tried various approaches – PRP could be the solution that finally targets the issue at the source."
       }
     ]
   },
   {
     id: 5,
-    title: "How is hair loss affecting you emotionally?",
-    subtitle: "Understanding your motivation helps us provide better support",
-    type: "slider",
-    sliderMin: 1,
-    sliderMax: 10,
-    sliderLabel: "Impact Level (1 = minimal, 10 = significant)"
+    title: "What's your main goal with hair restoration?",
+    subtitle: "Your goals help us tailor our approach",
+    type: "multiple-choice",
+    eduNugget: "PRP strengthens existing follicles and can thicken hair – it's especially effective for prevention and early-stage regrowth.",
+    options: [
+      {
+        label: "Stop any further hair loss",
+        value: "stop_loss",
+        description: "Smart goal – PRP's primary benefit is strengthening existing follicles to slow down shedding."
+      },
+      {
+        label: "Regrow thicker, fuller hair",
+        value: "regrow",
+        description: "Studies show increases in hair density and thickness within 3–6 months of PRP therapy."
+      },
+      {
+        label: "Improve my hairline or crown coverage",
+        value: "specific_area",
+        description: "PRP can target specific areas by reviving miniaturized hairs over several months."
+      },
+      {
+        label: "Avoid surgery or long-term medications",
+        value: "natural",
+        description: "PRP offers a drug-free, non-surgical solution using your body's own healing factors."
+      },
+      {
+        label: "Restore my confidence in my appearance",
+        value: "confidence",
+        description: "We understand – improving your hair can significantly boost self-esteem and quality of life."
+      }
+    ]
   },
   {
     id: 6,
-    title: "Which lifestyle factors apply to you?",
-    subtitle: "These can influence treatment planning",
-    type: "multiple-choice",
+    title: "Which description fits you best?",
+    subtitle: "This helps us personalize your recommendations",
+    type: "avatar-select",
+    eduNugget: "personaDynamic",
     options: [
       {
-        label: "High stress lifestyle",
-        value: "stress",
-        description: "Work, family, or life pressures"
+        label: "Postpartum Mom",
+        value: "postpartum",
+        description: "Hair shed after having a baby",
+        avatar: "/images/avatar-postpartum.svg"
       },
       {
-        label: "Active/athletic",
-        value: "active",
-        description: "Regular exercise, sports activities"
+        label: "Man under 50 with early thinning",
+        value: "male_early",
+        description: "Noticing crown or hairline changes",
+        avatar: "/images/avatar-male-young.svg"
       },
       {
-        label: "Frequent travel",
-        value: "travel",
-        description: "May affect treatment scheduling"
+        label: "Stressed or high-pressure lifestyle",
+        value: "stressed",
+        description: "Recent stress-related hair changes",
+        avatar: "/images/avatar-stressed.svg"
       },
       {
-        label: "None of the above",
-        value: "none",
-        description: "Standard approach works well"
+        label: "Woman 40+ with thinning hair",
+        value: "female_mature",
+        description: "Hormonal or age-related changes",
+        avatar: "/images/avatar-female-mature.svg"
+      },
+      {
+        label: "None of these/Other",
+        value: "other",
+        description: "Different situation than above",
+        avatar: "/images/avatar-other.svg"
       }
     ]
   },
   {
     id: 7,
-    title: "What's your primary goal?",
-    subtitle: "This helps us recommend the right approach",
+    title: "Are you open to PRP treatments if you're a candidate?",
+    subtitle: "This helps us provide the most relevant information",
     type: "multiple-choice",
+    eduNugget: "PRP is a commitment – typically 3-4 sessions over 3 months, then maintenance. But it's drug-free and uses your body's own healing factors.",
     options: [
       {
-        label: "Stop further hair loss",
-        value: "prevent",
-        description: "Maintain what you have"
+        label: "Yes, I'm interested in trying PRP",
+        value: "yes",
+        description: "Great! We'll show you personalized recommendations and next steps."
       },
       {
-        label: "Regrow lost hair",
-        value: "regrow",
-        description: "Reverse some of the loss"
+        label: "Maybe – I need to know more",
+        value: "maybe",
+        description: "Understandable – we'll provide detailed information to help you decide."
       },
       {
-        label: "Improve hair thickness",
-        value: "thicken",
-        description: "Make existing hair fuller"
-      },
-      {
-        label: "Explore all options",
-        value: "explore",
-        description: "Want to learn about possibilities"
+        label: "Not right now",
+        value: "no",
+        description: "That's okay – we'll share alternative options and resources for your consideration."
       }
     ]
   }

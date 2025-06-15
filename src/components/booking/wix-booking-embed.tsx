@@ -27,9 +27,7 @@ export function WixBookingEmbed({ open, onClose, resultType }: WixBookingEmbedPr
     return `${baseUrl}?${params.toString()}`
   }
 
-  const handleIframeLoad = () => {
-    setIsLoading(false)
-  }
+  // Removed unused function - setIsLoading is managed in useEffect
 
   const handleExternalBooking = () => {
     window.open(getBookingUrl(), '_blank')

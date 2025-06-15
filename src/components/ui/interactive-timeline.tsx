@@ -115,12 +115,12 @@ export function InteractiveTimeline() {
         <Card className="p-6 bg-summerview-tan/10 border-summerview-tan">
           <div className="flex items-start space-x-4">
             <div className={`w-16 h-16 rounded-full flex items-center justify-center ${
-              selectedData?.month <= 3 
+              selectedData && selectedData.month <= 3 
                 ? 'bg-summerview-teal text-summerview-white'
                 : 'bg-summerview-white border-2 border-summerview-tan text-summerview-brown'
             }`}>
               <span className="text-xl font-bold font-poppins">
-                {selectedData?.month === 0 ? '0' : selectedData?.month}
+                {selectedData?.month ?? ''}
               </span>
             </div>
             <div className="flex-1">

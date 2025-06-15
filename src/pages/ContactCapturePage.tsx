@@ -10,12 +10,14 @@ import { useQuizStore } from '@/lib/quiz-store'
 import { QuizProgress } from '@/components/quiz/quiz-progress'
 import { Shield, Mail, Phone, ArrowRight, CheckCircle } from 'lucide-react'
 import { validateEmail, validatePhone } from '@/lib/validation'
+import { createQuizSession, saveQuizContact } from '@/lib/supabase'
 
 export default function ContactCapturePage() {
   const navigate = useNavigate()
   const { answers, getResult } = useQuizStore()
   
   const [formData, setFormData] = useState({
+    name: '',
     email: '',
     phone: '',
     emailConsent: false,
@@ -71,23 +73,21 @@ export default function ContactCapturePage() {
     setIsSubmitting(true)
     
     try {
-      // Store contact info and quiz responses
-      const quizData = {
-        answers,
-        contact: {
-          email: formData.email,
-          phone: formData.phone,
-          emailConsent: formData.emailConsent,
-          phoneConsent: formData.phoneConsent
-        },
-        timestamp: new Date().toISOString()
-      }
-      
-      // TODO: Submit to backend API
-      await new Promise(resolve => setTimeout(resolve, 1000)) // Simulate API call
-      
-      // Determine result type and redirect
+      // Determine result type
       const resultType = getResult()
+      
+      // Save quiz session to Supabase
+      const session = await createQuizSession(answers, resultType)
+      
+      // Save contact information
+      await saveQuizContact(session.id, {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        consent_marketing: formData.emailConsent || formData.phoneConsent
+      })
+      
+      // Navigate to results
       navigate(`/quiz/results/${resultType}`)
       
     } catch (error) {
@@ -138,6 +138,21 @@ export default function ContactCapturePage() {
               {/* Contact Information */}
               <div className="space-y-4">
                 <h2 className="text-xl font-poppins font-semibold text-summerview-black mb-4">Contact Information</h2>
+                
+                {/* Name Field */}
+                <div className="space-y-2">
+                  <Label htmlFor="name" className="font-lato">
+                    Name (optional)
+                  </Label>
+                  <Input
+                    id="name"
+                    type="text"
+                    placeholder="Your name"
+                    value={formData.name}
+                    onChange={(e) => handleInputChange('name', e.target.value)}
+                    className="font-lato border-summerview-gray"
+                  />
+                </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">

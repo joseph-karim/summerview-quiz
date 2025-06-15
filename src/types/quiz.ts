@@ -23,6 +23,7 @@ export interface QuizQuestion {
   sliderMin?: number
   sliderMax?: number
   sliderLabel?: string
+  eduNugget?: string
 }
 
 export interface QuizResult {

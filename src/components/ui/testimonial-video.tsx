@@ -11,7 +11,7 @@ interface TestimonialVideoProps {
   description: string
 }
 
-export function TestimonialVideo({ videoUrl, thumbnail, name, age, description }: TestimonialVideoProps) {
+export function TestimonialVideo({ thumbnail, name, age, description }: TestimonialVideoProps) {
   const [isPlaying, setIsPlaying] = useState(false)
   const [isMuted, setIsMuted] = useState(true)
   const [showVideo, setShowVideo] = useState(false)
