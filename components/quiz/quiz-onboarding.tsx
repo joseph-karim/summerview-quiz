@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Dialog, DialogContent } from '@/components/ui/dialog'
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
 import { X, ArrowRight, Shield, Clock, Heart } from 'lucide-react'
@@ -36,7 +36,9 @@ export function QuizOnboarding({ open, onClose }: QuizOnboardingProps) {
               <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Heart className="w-8 h-8 text-white" />
               </div>
-              <h2 className="text-2xl font-bold mb-2">Ready to Start Your Hair Journey?</h2>
+              <DialogTitle asChild>
+                <h2 className="text-2xl font-bold mb-2">Ready to Start Your Hair Journey?</h2>
+              </DialogTitle>
               <p className="text-blue-100">Let's find out if PRP is right for you</p>
             </div>
           </div>
