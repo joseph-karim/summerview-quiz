@@ -1,0 +1,125 @@
+---
+description: Apply these rules when creating the project
+globs:
+alwaysApply: true
+---
+## Project Overview
+
+*   **Type:** Web Application (Lead Qualification Quiz)
+*   **Description:** PRP Hair Window Finder: a 7-step interactive quiz to qualify leads for PRP hair restoration and educate potential patients using rich media and empathetic UX.
+*   **Primary Goal:** Qualify and segment users into three result pathways (Ideal Candidate, Partial Fit, Not a Fit) and drive consultation bookings via embedded Wix Bookings.
+
+## Project Structure
+
+### Framework-Specific Routing
+
+*   **Directory Rules:**
+    *   Next.js 14 (App Router): use `app/[route]/page.tsx` for all routes.
+    *   Example 1: Quiz steps → `app/quiz/[step]/page.tsx`
+    *   Example 2: Result pages → `app/results/[outcome]/page.tsx`
+    *   Example 3: Admin dashboard → `app/admin/dashboard/page.tsx`
+
+### Core Directories
+
+*   **Versioned Structure:**
+    *   `app/api`: Next.js 14 API routes with Route Handlers (`route.ts`)
+    *   `app/components`: Shared UI components (Tailwind + shadcn/ui)
+    *   `app/lib`: Utility functions and clients (Supabase, PostHog)
+    *   `app/quiz`: Dynamic quiz engine (server + client components)
+    *   `app/admin`: Custom admin dashboard and logic editor
+    *   `public`: Static assets (GIFs, videos, logos)
+
+### Key Files
+
+*   **Stack-Versioned Patterns:**
+    *   `app/layout.tsx`: Next.js 14 root layout with global providers (Clerk, PostHog)
+    *   `app/globals.css`: Tailwind base, shadcn/ui imports
+    *   `app/quiz/[step]/page.tsx`: Quiz step rendering (client component)
+    *   `app/results/[outcome]/page.tsx`: Result pathway pages
+    *   `app/api/quiz/route.ts`: Route Handler for recording answers
+    *   `app/api/bookings/route.ts`: Proxy to Wix Bookings embed
+    *   `app/api/admin/logic/route.ts`: CRUD for quiz logic JSON schema
+    *   `app/admin/dashboard/page.tsx`: Admin dashboard entry (Clerk-protected)
+    *   `app/api/auth/[...clerk]/route.ts`: Clerk Auth webhooks
+
+## Tech Stack Rules
+
+*   next@14: App Router required; no `pages/` directory; use server components for data and client components for interactivity.
+*   typescript@^4.x: strict mode, noImplicitAny, use interfaces for quiz logic schema.
+*   tailwindcss@^3.0: JIT mode; configure design tokens for Summerview palette.
+*   shadcn/ui@latest: extend primitives for brand typography and button variants.
+*   framer-motion@^10.0: use variants and reduced-motion checks.
+*   node@18: ESM modules; top-level await allowed in Route Handlers.
+*   supabase-js@^2.0: use RLS and minimal PII; store only identifiers and quiz responses.
+*   posthog-js@^2.0: track quiz steps, drop-offs, completions; call `identify()` after consent.
+*   clerk@next: protect `/app/admin` routes; use middleware and server components for auth.
+
+## PRD Compliance
+
+*   “Embed Wix Bookings for consult scheduling, with pre-filled form data.”: must use `app/api/bookings/route.ts` proxy and `<iframe>` embed in result CTAs.
+*   “Collect email and phone with consent before displaying results. Minimal PII storage (rely on patient portals).”: implement consent banner at `app/quiz/step-7/page.tsx`, store only tokens.
+*   “A custom admin dashboard is required for managing quiz logic and content.”: build `app/admin/dashboard` with dynamic JSON editor and analytics panel.
+
+## App Flow Integration
+
+*   Next.js 14 Quiz Flow → `app/quiz/[step]/page.tsx` uses client components to display questions and server actions (`app/api/quiz/route.ts`) to record answers.
+*   Result Pathways → `app/results/[outcome]/page.tsx` fetches tailored content from Supabase and embeds Wix Bookings widget.
+*   Admin Flow → `app/admin/dashboard/page.tsx` (Clerk-protected) loads quiz logic JSON via `app/api/admin/logic/route.ts`, allows CMS-style updates, and displays PostHog analytics.
+
+## Best Practices
+
+*   Next.js 14 (App Router)
+    *   Use layouts and templates for consistent UI.
+    *   Leverage server components for SEO and data fetching.
+    *   Keep interactive elements in client components.
+    *   Use Route Handlers under `app/api` for backend logic.
+*   TypeScript
+    *   Enable strict mode and explicit return types.
+    *   Model quiz logic and content schemas with interfaces.
+    *   Use discriminated unions for branching logic.
+*   Tailwind CSS
+    *   Configure custom colors and typography in `tailwind.config.js`.
+    *   Use utility classes; avoid inline styles.
+    *   Use `@apply` for shared component styles.
+*   shadcn/ui
+    *   Extend primitives with brand variants.
+    *   Prefer accessible components (ARIA attributes).
+*   Framer Motion
+    *   Define motion variants for step transitions.
+    *   Honor `prefers-reduced-motion` user setting.
+*   Supabase/PostgreSQL
+    *   Use Row Level Security policies.
+    *   Index response tables for analytics queries.
+*   PostHog
+    *   Fire events at every step mount/unmount.
+    *   Capture drop-off and completion events.
+*   Clerk Auth
+    *   Protect admin routes with middleware.
+    *   Use server components to read session.
+
+## Rules
+
+*   Derive folder/file patterns **directly** from techStackDoc versions.
+*   If Next.js 14 App Router: Enforce `app/` directory with nested route folders.
+*   Mirror this logic for any other framework versions (React Router, SvelteKit, etc.).
+*   Never mix version patterns (e.g., no `pages/` in App Router projects, no `app/` in Pages Router setups).
+
+## Rules Metrics
+
+Before starting the project development, create a metrics file in the root of the project called
+
+`cursor_metrics.md`.
+
+### Instructions:
+
+*   Each time a cursor rule is used as context, update `cursor_metrics.md`.
+*   Use the following format for `cursor_metrics.md`:
+
+    # Rules Metrics
+
+    ## Usage
+    The number of times rules is used as context
+
+    *   rule-name.mdc: 5
+    *   another-rule.mdc: 2
+    *   ...other rules
