@@ -10,7 +10,6 @@ import { WixBookingEmbed } from '@/components/booking/wix-booking-embed'
 import { InteractiveTimeline } from '@/components/ui/interactive-timeline'
 import { useState } from 'react'
 import { useQuizStore } from '@/lib/quiz-store'
-import { getCaseStudyByPersona } from '@/data/case-studies'
 
 export default function ResultsPage() {
   const params = useParams()
@@ -35,11 +34,9 @@ export default function ResultsPage() {
 
   // Get persona-specific content
   const persona = answers[6] as string
-  const timeline = answers[2] as string
-  const hairLossArea = answers[1] as string
   
   // Get persona details for personalization
-  const personaDetails = {
+  const personaDetails: Record<string, any> = {
     postpartum: {
       name: 'Sarah',
       age: '30-40',
@@ -629,13 +626,13 @@ export default function ResultsPage() {
                     </div>
                   )}
                   
-                  {(!persona || persona === 'other' || persona === 'female_mature') && result.testimonial && (
+                  {(!persona || persona === 'other' || persona === 'female_mature') && 'testimonial' in result && result.testimonial && (
                     <div className="max-w-2xl mx-auto">
                       <blockquote className="text-lg text-summerview-dark-gray font-lato italic mb-4 text-center">
-                        "{result.testimonial.quote}"
+                        "{(result as any).testimonial.quote}"
                       </blockquote>
                       <p className="text-center font-poppins font-semibold text-summerview-black">
-                        — {result.testimonial.author}
+                        — {(result as any).testimonial.author}
                       </p>
                     </div>
                   )}
@@ -876,10 +873,10 @@ export default function ResultsPage() {
                   <Card className="p-8 border-summerview-gray bg-summerview-tan/10">
                     <div className="max-w-2xl mx-auto">
                       <blockquote className="text-lg text-summerview-dark-gray font-lato italic mb-4 text-center">
-                        "{result.testimonial.quote}"
+                        "{(result as any).testimonial.quote}"
                       </blockquote>
                       <p className="text-center font-poppins font-semibold text-summerview-black">
-                        — {result.testimonial.author}
+                        — {(result as any).testimonial.author}
                       </p>
                     </div>
                   </Card>
